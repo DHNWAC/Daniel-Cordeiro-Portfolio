@@ -1,0 +1,325 @@
+{% extends "base.html" %}
+
+{% block title %}DC - Data Science Portfolio | NLP Analysis{% endblock %}
+
+{% block content %}
+<!-- Project Header -->
+<section class="project-header">
+    <div class="container">
+        <h1 class="display-4 fw-bold">NLP Analysis</h1>
+        <p class="lead">Leveraging natural language processing to extract insights from product reviews and customer feedback</p>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section class="container mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h2 class="section-title">Project Overview</h2>
+            <p>This project demonstrates NLP techniques to analyse customer reviews through sentiment analysis, topic modelling and other methodologies.</p>
+            
+            <h3 class="mt-4">Business Objectives</h3>
+            <ul>
+                <li>Assess overall customer sentiment for different products</li>
+                <li>Identify specific product aspects (e.g., battery, display, performance) that receive positive or negative feedback</li>
+                <li>Discover key topics and themes in customer reviews </li>
+            </ul>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Technologies Used</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Python</span>
+                        <span class="badge bg-primary skill-badge">NLTK</span>
+                        <span class="badge bg-primary skill-badge">Pandas</span>
+                        <span class="badge bg-primary skill-badge">NumPy</span>
+                        <span class="badge bg-primary skill-badge">Matplotlib</span>
+                        <span class="badge bg-primary skill-badge">Seaborn</span>
+                        <span class="badge bg-primary skill-badge">scikit-learn</span>
+                        <span class="badge bg-primary skill-badge">WordCloud</span>
+                    </div>
+                    
+                    <h5 class="card-title mt-4">Techniques</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Sentiment Analysis</span>
+                        <span class="badge bg-primary skill-badge">Topic modelling</span>
+                        <span class="badge bg-primary skill-badge">Aspect-Based Sentiment</span>
+                        <span class="badge bg-primary skill-badge">Text Preprocessing</span>
+                        <span class="badge bg-primary skill-badge">N-gram Analysis</span>
+                        <span class="badge bg-primary skill-badge">Word Frequency</span>
+                        <span class="badge bg-primary skill-badge">NMF</span>
+                    </div>
+                    
+                    <!-- <h5 class="card-title mt-4">Source Code</h5>
+                    <a href="https://github.com/yourusername/nlp-analysis" target="_blank" class="btn btn-primary w-100">
+                        <i class="fab fa-github me-2"></i>View on GitHub -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Methodology Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Methodology</h2>
+    <div class="row">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Analytical Approach</h5>
+                    <ol>
+                        <li><strong>Text Preprocessing:</strong> Cleaning, tokenization, stopword removal, and lemmatization to prepare text for analysis</li>
+                        <li><strong>Sentiment Analysis:</strong> Using VADER to quantify the positive, negative, or neutral sentiment in each review</li>
+                        <li><strong>Word Clouds:</strong> Visualization of frequently mentioned terms for different sentiment categories</li>
+                        <li><strong>N-gram Analysis:</strong> Identifying common phrases and word pairs to understand context</li>
+                        <li><strong>Topic modelling:</strong> Using Non-negative Matrix Factorization (NMF) to identify key themes in reviews</li>
+                        <li><strong>Aspect-Based Sentiment Analysis:</strong> Extracting sentiment about specific product features</li>
+                        <li><strong>Review Length Analysis:</strong> Examining the relationship between review length and sentiment/helpfulness</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Key Findings -->
+<section class="container mb-5">
+    <h2 class="section-title">Key Findings</h2>
+    
+    <!-- Product Statistics and Sentiment -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">1. Product Ratings and Overall Sentiment</h4>
+            <p class="card-text">Analysis of ratings and sentiment scores revealed significant differences in customer satisfaction across products. While ratings and sentiment are correlated, sentiment analysis identified nuanced opinions not captured by star ratings alone.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/nlp/average_ratings.png') }}" alt="Average Ratings by Product" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Average rating by product, showing Headphones Ultra with highest satisfaction and Budget Phone with lowest.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/nlp/sentiment_by_product.png') }}" alt="Sentiment by Product" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Average sentiment score by product, providing a more nuanced view of customer satisfaction than star ratings alone.</figcaption>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/nlp/rating_distribution.png') }}" alt="Rating Distribution" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Distribution of ratings across all products, showing a positive skew with most ratings at 4-5 stars.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/nlp/sentiment_distribution.png') }}" alt="Sentiment Distribution" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Distribution of sentiment categories, with 68% positive, 18% neutral, and 14% negative reviews.</figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Bigram Analysis -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">3. N-gram Analysis</h4>
+            <p class="card-text">Analysis of bigrams (two-word phrases) to be the most common in the data set of reviews.</p>
+            <div class="text-center">
+                <img src="{{ url_for('static', filename='images/nlp/top_bigrams.png') }}" alt="Top Bigrams" class="img-fluid viz-img">
+                <figcaption class="text-muted mt-2">Top 15 bigrams across all reviews, showing common phrases and descriptive combinations that single words might miss.</figcaption>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>Top Positive Bigrams</h5>
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Bigram</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>battery life</td>
+                                <td>78</td>
+                            </tr>
+                            <tr>
+                                <td>great product</td>
+                                <td>65</td>
+                            </tr>
+                            <tr>
+                                <td>highly recommend</td>
+                                <td>54</td>
+                            </tr>
+                            <tr>
+                                <td>easy use</td>
+                                <td>48</td>
+                            </tr>
+                            <tr>
+                                <td>picture quality</td>
+                                <td>42</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h5>Top Negative Bigrams</h5>
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Bigram</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>battery drain</td>
+                                <td>37</td>
+                            </tr>
+                            <tr>
+                                <td>poor quality</td>
+                                <td>32</td>
+                            </tr>
+                            <tr>
+                                <td>waste money</td>
+                                <td>28</td>
+                            </tr>
+                            <tr>
+                                <td>not worth</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <td>disappointed product</td>
+                                <td>21</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Topic modelling -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">4. Topic modelling</h4>
+            <p class="card-text">Non-negative Matrix Factorization (NMF) was used to identify 5 distinct topics in the review corpus, providing insights into the main themes and concerns expressed by customers.</p>
+            <div class="text-center">
+                <img src="{{ url_for('static', filename='images/nlp/topic_distribution.png') }}" alt="Topic Distribution" class="img-fluid viz-img">
+                <figcaption class="text-muted mt-2">Distribution of identified topics across the review dataset, showing the prevalence of each theme.</figcaption>
+            </div>
+            <div class="mt-4">
+                <h5>Identified Topics and Key Terms</h5>
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Topic</th>
+                            <th>Top Words</th>
+                            <th>Interpretation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Topic 1</td>
+                            <td>battery, life, charge, last, long, day, hour</td>
+                            <td>Battery Life and Charging</td>
+                        </tr>
+                        <tr>
+                            <td>Topic 2</td>
+                            <td>screen, display, quality, resolution, bright, color, touch</td>
+                            <td>Display Quality</td>
+                        </tr>
+                        <tr>
+                            <td>Topic 3</td>
+                            <td>price, value, money, worth, cost, expensive, cheap</td>
+                            <td>Price and Value</td>
+                        </tr>
+                        <tr>
+                            <td>Topic 4</td>
+                            <td>camera, picture, photo, quality, video, image, take</td>
+                            <td>Camera Quality</td>
+                        </tr>
+                        <tr>
+                            <td>Topic 5</td>
+                            <td>performance, fast, speed, slow, lag, processor, run</td>
+                            <td>Performance and Speed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Aspect-Based Sentiment Analysis -->
+    <div class="card visualization-card">
+        <div class="card-body">
+            <h4 class="card-title">5. Aspect-Based Sentiment Analysis</h4>
+            <p class="card-text">By analyzing sentiment specifically for different product aspects (features), we gained detailed insights into which features customers liked or disliked across products.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/nlp/aspect_mentions.png') }}" alt="Aspect Mentions" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Frequency of aspect mentions across all reviews, showing which features customers discuss most often.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/nlp/aspect_sentiment.png') }}" alt="Aspect Sentiment" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Average sentiment score for each aspect, highlighting the features that receive most positive and negative feedback.</figcaption>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename='images/nlp/aspect_sentiment_heatmap.png') }}" alt="Aspect Sentiment Heatmap" class="img-fluid viz-img">
+                    <figcaption class="text-muted mt-2">Heatmap showing sentiment scores for each aspect across different products, providing a comprehensive view of strengths and weaknesses.</figcaption>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h5>Key Aspect-Based Insights</h5>
+                <ul>
+                    <li><strong>Battery:</strong> Most frequently mentioned aspect (236 mentions), with mixed sentiment (-0.12 for Budget Phone, +0.65 for Tablet Mini)</li>
+                    <li><strong>Display:</strong> Second most mentioned aspect (214 mentions), generally positive sentiment (+0.47 average)</li>
+                    <li><strong>Performance:</strong> Wide variation in sentiment across products (+0.72 for Laptop Pro, -0.23 for Budget Phone)</li>
+                    <li><strong>Price:</strong> Most negative aspect for premium products (-0.15 for Smartphone X), positive for Budget Phone (+0.58)</li>
+                    <li><strong>Camera:</strong> Highly polarized aspect (strongest positive for Smartphone X at +0.76, strongest negative for Budget Phone at -0.36)</li>
+                    <li><strong>Sound:</strong> Highest overall sentiment (+0.78) for Headphones Ultra</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Conclusions Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Conclusions & Recommendations</h2>
+    <div class="card border-0 shadow">
+        <div class="card-body">
+            <h4 class="mb-3">Key Product Insights</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Product Strengths</h5>
+                    <ul>
+                        <li><strong>Headphones Ultra:</strong> Industry-leading sound quality and comfort, excellent battery life (90% positive sentiment)</li>
+                        <li><strong>Smartphone X:</strong> Superior camera quality, premium display, decent battery life (80% positive sentiment)</li>
+                        <li><strong>Laptop Pro:</strong> Strong performance, high-quality display, good build quality (70% positive sentiment)</li>
+                        <li><strong>Tablet Mini:</strong> Excellent battery life, portable design, good display (60% positive sentiment)</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>Areas for Improvement</h5>
+                    <ul>
+                        <li><strong>Budget Phone:</strong> Poor camera quality, performance issues, battery longevity (30% positive sentiment)</li>
+                        <li><strong>Smart Watch:</strong> Battery drain issues, limited functionality (50% positive sentiment)</li>
+                        <li><strong>Digital Camera:</strong> Mixed reviews on price-to-performance ratio (60% positive sentiment)</li>
+                        <li><strong>Smartphone X:</strong> Price concerns, software bugs mentioned in some reviews</li>
+                    </ul>
+                </div>
+            </div>
+            
+</section>
+{% endblock %}

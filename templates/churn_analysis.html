@@ -1,0 +1,367 @@
+{% extends "base.html" %}
+
+{% block title %}DC - Data Science Portfolio | Churn Analysis{% endblock %}
+
+{% block content %}
+<!-- Project Header -->
+<section class="project-header">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Churn Analysis</h1>
+        <p class="lead">Predicting customer attrition and identifying retention strategies using survival analysis and machine learning</p>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section class="container mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h2 class="section-title">Project Overview</h2>
+            <p>This abalysis walks through solutions to tackle customers churn through useing machine learning techniques.  This was achieved through using features such as subscription patters, engagement metrics, and other demographic data.</p>
+          
+           
+            <h3 class="mt-4">Business Objectives</h3>
+            <ul>
+                <li>Identify key factors and behavioral patterns that lead to customer churn</li>
+                <li>Develop a predictive model to identify customers at high risk of churning</li>
+                <li>Estimate potential revenue savings from improved retention</li>
+            </ul>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Technologies Used</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Python</span>
+                        <span class="badge bg-primary skill-badge">Pandas</span>
+                        <span class="badge bg-primary skill-badge">NumPy</span>
+                        <span class="badge bg-primary skill-badge">Matplotlib</span>
+                        <span class="badge bg-primary skill-badge">Seaborn</span>
+                        <span class="badge bg-primary skill-badge">Scikit-learn</span>
+                        <span class="badge bg-primary skill-badge">Lifelines</span>
+                    </div>
+                    
+                    <h5 class="card-title mt-4">Techniques</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Survival Analysis</span>
+                        <span class="badge bg-primary skill-badge">Kaplan-Meier Estimation</span>
+                        <span class="badge bg-primary skill-badge">Cox Proportional Hazards</span>
+                        <span class="badge bg-primary skill-badge">Random Forest</span>
+                        <span class="badge bg-primary skill-badge">Feature Importance</span>
+                        <span class="badge bg-primary skill-badge">Customer Lifetime Value</span>
+                    </div>
+                    
+                    <!-- <h5 class="card-title mt-4">Source Code</h5>
+                    <a href="https://github.com/yourusername/churn-analysis" target="_blank" class="btn btn-primary w-100">
+                        <i class="fab fa-github me-2"></i>View on GitHub -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Methodology Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Methodology</h2>
+    <div class="row">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Analytical Approach</h5>
+                    <ol>
+                        <li><strong>Exploratory Analysis:</strong> Identifying churn rates across different customer segments and behaviors</li>
+                        <li><strong>Survival Analysis:</strong> Using Kaplan-Meier curves and Cox Proportional Hazards models to understand churn over time</li>
+                        <li><strong>Predictive modelling:</strong> Developing a Random Forest classifier to predict customer churn</li>
+                        <li><strong>Feature Importance:</strong> Identifying the factors with the strongest influence on churn decisions</li>
+                        <li><strong>Customer Lifetime Value Analysis:</strong> Examining the financial impact of churn on different customer segments</li>
+                        <li><strong>At-Risk Customer Identification:</strong> Creating a framework to identify high-value customers at risk of churning</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Key Findings -->
+<section class="container mb-5">
+    <h2 class="section-title">Key Findings</h2>
+    
+    <!-- Churn Rate Analysis -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">1. Churn Rate Analysis</h4>
+            <p class="card-text">Below are the churn rates across different customer segments  There is definitely some variation across the features with respect to the churn rate.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/churn_by_subscription.png') }}" alt="Churn by Subscription Type" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Churn rate by subscription type, showing higher churn among Basic tier customers compared to Premium subscribers.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/churn_by_payment.png') }}" alt="Churn by Payment Method" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Churn rate by payment method, revealing that Bank Transfer customers have the highest attrition rate.</figcaption>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/churn_by_age.png') }}" alt="Churn by Age Group" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Churn rate by age group, showing higher churn among younger customers (18-24) and older customers (65+).</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/churn_by_usage.png') }}" alt="Churn by Usage Level" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Churn rate by usage level, demonstrating a strong inverse relationship between product usage and churn probability.</figcaption>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename='images/churn/churn_by_decline.png') }}" alt="Churn by Usage Decline" class="img-fluid viz-img" style="max-width: 700px;">
+                    <figcaption class="text-muted mt-2">Churn rate by usage decline level, highlighting usage decline as a critical early warning sign of potential churn.</figcaption>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Survival Analysis -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">2. Survival Analysis</h4>
+            <p class="card-text">Survival analysis provided insights into customer retention patterns over time.  This the probability of customers surviving (or remaining active) in their future days using a product.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/overall_survival_curve.png') }}" alt="Overall Survival Curve" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Kaplan-Meier survival curve showing retention over time, with a drop in the first 90 days.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/survival_by_subscription.png') }}" alt="Survival by Subscription Type" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Survival curves by subscription type - higher retention rates for premium customers over time.</figcaption>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename='images/churn/cox_hazard_ratios.png') }}" alt="Cox Proportional Hazards" class="img-fluid viz-img" style="max-width: 800px;">
+                    <figcaption class="text-muted mt-2">Cox Proportional Hazards model results showing the relative impact of different factors on churn risk (hazard ratios above 1 indicate increased risk).</figcaption>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>Key Survival Analysis Insights</h5>
+                    <ul>
+                        <li>The steepest drop in the survival curve occurs in the first 90 days, highlighting this as a critical period for retention efforts</li>
+                        <li>Premium subscribers have a 68% higher retention rate at the 12-month mark compared to Basic subscribers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Predictive modelling Results -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">3. Predictive modelling Results</h4>
+            <p class="card-text">A Random Forest classifier was developed to predict customer churn with high accuracy. The model identifies at-risk customers before they churn, enabling proactive retention efforts and providing insights into the most important predictors of churn behavior.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/feature_importances.png') }}" alt="Feature Importances" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Feature importance on churn prediction.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/confusion_matrix.png') }}" alt="Confusion Matrix" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Confusion matrix showing model performance, with strong accuracy in identifying both churned and retained customers.</figcaption>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/partial_dependence_plots.png') }}" alt="Partial Dependence Plots" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Partial dependence plots showing the relationship between top features and churn probability.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Model Performance Metrics</h5>
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Metric</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Accuracy</td>
+                                <td>0.87</td>
+                            </tr>
+                            <tr>
+                                <td>Precision</td>
+                                <td>0.83</td>
+                            </tr>
+                            <tr>
+                                <td>Recall</td>
+                                <td>0.79</td>
+                            </tr>
+                            <tr>
+                                <td>F1 Score</td>
+                                <td>0.81</td>
+                            </tr>
+                            <tr>
+                                <td>ROC AUC</td>
+                                <td>0.91</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Customer Lifetime Value Analysis -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">4. Customer Lifetime Value Analysis</h4>
+            <p class="card-text">Customer lifetime value (LTV) in relation to churn provides insights into financial impact of retention efforts.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/ltv_by_churn.png') }}" alt="LTV by Churn Status" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Lifetime value comparison between retained and churned customers, showing the substantial value difference between these groups.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/churn/ltv_by_subscription_churn.png') }}" alt="LTV by Subscription and Churn" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Lifetime value by subscription type and churn status.</figcaption>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h5>LTV Analysis Insights</h5>
+                <ul>
+                    <li>Retained customers have 2.8x higher LTV compared to churned customers</li>
+                    <li>Premium subscribers who churn still have higher LTV than retained Basic subscribers</li>
+                    <li>The financial impact of reducing churn is highest for Premium customers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- Retention Strategies Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Retention Strategies</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-primary">High-Value Customers</h4>
+                    <h5 class="mt-3">Recommended Strategies</h5>
+                    <ol>
+                        <li>Proactive outreach when usage decline detected</li>
+                        <li>Priority customer support channel</li>
+                        <li>Personalized usage tips based on past engagement</li>
+                        <li>Loyalty rewards program</li>
+                        <li>Early access to new features</li>
+                    </ol>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <strong>Expected Impact: </strong>25-35% reduction in high-value churn
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-primary">New Customers</h4>
+                    <h5 class="mt-3">Recommended Strategies</h5>
+                    <ol>
+                        <li>Structured onboarding program</li>
+                        <li>30/60/90 day check-in emails</li>
+                        <li>Feature discovery campaigns</li>
+                        <li>Early usage incentives</li>
+                        <li>First-time support issue resolution guarantee</li>
+                    </ol>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <strong>Expected Impact: </strong>40-50% reduction in early-stage churn
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-primary">At-Risk Basic Subscribers</h4>
+                    <h5 class="mt-3">Recommended Strategies</h5>
+                    <ol>
+                        <li>Re-engagement campaigns highlighting value</li>
+                        <li>Targeted feature education</li>
+                        <li>Right-sizing subscription options</li>
+                        <li>Limited-time loyalty discount</li>
+                        <li>Simplified user experience for core features</li>
+                    </ol>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <strong>Expected Impact: </strong>15-20% reduction in basic tier churn
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- Conclusions Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Conclusions & Business Impact</h2>
+    <div class="card border-0 shadow">
+        <div class="card-body">
+            <h4 class="mb-3">Key Insights</h4>
+            <ol>
+                <li><strong>Churn Drivers:</strong> Usage decline, payment issues, and support tickets are the strongest predictors of customer churn, with usage metrics being particularly powerful indicators.</li>
+                <li><strong>Timing Patterns:</strong> The first 90 days and subscription anniversaries represent critical periods when customers are most likely to churn.</li>
+                <li><strong>Segment Differences:</strong> Churn behavior varies significantly by subscription type, age group, and payment method, with Premium subscribers showing 45% lower churn than Basic tier.</li>
+                <li><strong>Financial Impact:</strong> High-value customers at risk of churning represent a potential $134,000 in at-risk revenue that could be saved through targeted intervention.</li>
+                <li><strong>Predictive Accuracy:</strong> The developed model can identify at-risk customers with 87% accuracy, enabling proactive retention strategies.</li>
+            </ol>
+            
+            <h4 class="mb-3 mt-4">Projected Business Impact</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Churn Reduction</h5>
+                            <p class="display-4">23%</p>
+                            <p class="card-text">Projected reduction in overall churn rate through implementation of recommended strategies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Revenue Retention</h5>
+                            <p class="display-4">$215K</p>
+                            <p class="card-text">Annual revenue saved through improved customer retention</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Customer Lifetime</h5>
+                            <p class="display-4">+4.8<small>mo</small></p>
+                            <p class="card-text">Projected increase in average customer lifetime</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+</section>
+{% endblock %}

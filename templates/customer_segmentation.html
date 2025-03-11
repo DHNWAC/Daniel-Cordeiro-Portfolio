@@ -1,0 +1,333 @@
+{% extends "base.html" %}
+
+{% block title %}DC - Data Science Portfolio | Customer Segmentation Analysis{% endblock %}
+
+{% block content %}
+<!-- Project Header -->
+<section class="project-header">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Customer Segmentation Analysis</h1>
+        <p class="lead">Identifying distinct customer groups to enable targeted marketing strategies and personalized experiences</p>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section class="container mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h2 class="section-title">Project Overview</h2>
+            <p>This project conducts a comprehensive customer segmentation analysis for an e-commerce business. I have used advanced clustering techniques, RFM analysis and ML techniques.</p>
+            
+            
+            <h3 class="mt-4">Business Objectives</h3>
+            <ul>
+                <li>Identify distinct customer segments based on behavior and purchasing patterns</li>
+                <li>Develop targeted marketing strategies and personalized experiences for each segment</li>
+                <li>Create a recommendation system to predict products of interest for different customer groups</li>
+            </ul>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Technologies Used</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Python</span>
+                        <span class="badge bg-primary skill-badge">Pandas</span>
+                        <span class="badge bg-primary skill-badge">NumPy</span>
+                        <span class="badge bg-primary skill-badge">Matplotlib</span>
+                        <span class="badge bg-primary skill-badge">Seaborn</span>
+                        <span class="badge bg-primary skill-badge">Scikit-learn</span>
+                        <span class="badge bg-primary skill-badge">TensorFlow</span>
+                        <span class="badge bg-primary skill-badge">Plotly</span>
+                    </div>
+                    
+                    <h5 class="card-title mt-4">Techniques</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">RFM Analysis</span>
+                        <span class="badge bg-primary skill-badge">K-Means Clustering</span>
+                        <span class="badge bg-primary skill-badge">Neural Collaborative Filtering</span>
+                        <span class="badge bg-primary skill-badge">Cohort Analysis</span>
+                        <span class="badge bg-primary skill-badge">Customer Lifetime Value</span>
+                    </div>
+                    
+                    <!-- <h5 class="card-title mt-4">Source Code</h5>
+                    <a href="https://github.com/yourusername/customer-segmentation-analysis" target="_blank" class="btn btn-primary w-100">
+                        <i class="fab fa-github me-2"></i>View on GitHub -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Methodology Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Methodology</h2>
+    <div class="row">
+
+<section class="container mb-5">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Analytical Approach</h5>
+                    <ol>
+                        <li><strong>RFM Analysis:</strong> Segmentation based on Recency, Frequency, and Monetary value</li>
+                        <li><strong>K-Means Clustering:</strong> Identifying natural customer groupings</li>
+                        <li><strong>Neural Collaborative Filtering:</strong> Recommendation system using basic neural networks</li>
+                        <li><strong>Cohort Analysis:</strong> Tracking customer retention and behavior over time</li>
+                        <li><strong>Customer Lifetime Value:</strong> Predictive modelling of customer worth</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+<!-- Key Findings -->
+<section class="container mb-5">
+    <h2 class="section-title">Key Findings</h2>
+    
+    <!-- RFM Analysis Results -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">1. RFM Analysis and Customer Clusters</h4>
+            <p class="card-text">Using RFM (Recency, Frequency, Monetary) analysis combined with K-means clustering, I identified six distinct customer segments with unique behavioral patterns.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/customer_segmentation/rfm_analysis.png') }}" alt="RFM Analysis" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Visualisation of customer clusters based on RFM metrics, showing clear separation between segments.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Customer Segments</h5>
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Segment</th>
+                                <th>Description</th>
+                                <th>% of Customers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>VIP Customers</td>
+                                <td>High frequency, high monetary value, recent purchases</td>
+                                <td>15%</td>
+                            </tr>
+                            <tr>
+                                <td>Loyal Customers</td>
+                                <td>Regular purchases with moderate value</td>
+                                <td>22%</td>
+                            </tr>
+                            <tr>
+                                <td>New Potential</td>
+                                <td>Recent first-time buyers with potential for growth</td>
+                                <td>18%</td>
+                            </tr>
+                            <tr>
+                                <td>Dormant High Value</td>
+                                <td>Previously valuable customers who haven't purchased recently</td>
+                                <td>12%</td>
+                            </tr>
+                            <tr>
+                                <td>Big Spenders Gone Cold</td>
+                                <td>High-value customers who have stopped purchasing</td>
+                                <td>8%</td>
+                            </tr>
+                            <tr>
+                                <td>Occasional Customers</td>
+                                <td>Infrequent purchases with low monetary value</td>
+                                <td>25%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Neural Collaborative Filtering -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">2. Neural Collaborative Filtering for Recommendations</h4>
+            <p class="card-text">I implemented a very basic neural network to reccommend personalised products. The model achieved a test RMSE of 0.86 which indicates strong performance.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/customer_segmentation/neural_collaborative_filtering.png') }}" alt="Neural Collaborative Filtering" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Training performance and predicted vs. actual ratings from model.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/customer_segmentation/embedding_visualization.png') }}" alt="Embedding Visualization" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">2D visualization of product embeddings from model.</figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Customer Lifetime Value -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">4. Customer Lifetime Value Analysis</h4>
+            <p class="card-text">I developed a comprehensive CLV model that incorporates purchase frequency, average order value, and customer retention probability to estimate the future value of each customer segment.</p>
+            <div class="text-center">
+                <img src="{{ url_for('static', filename='images/customer_segmentation/customer_ltv_analysis.png') }}" alt="Customer Lifetime Value Analysis" class="img-fluid viz-img" style="max-width: 800px;">
+                <figcaption class="text-muted mt-2">Customer Lifetime Value analysis showing distribution and relationship with recency, frequency, and monetary factors.</figcaption>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>Average CLV by Segment</h5>
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Segment</th>
+                                <th>1-Year CLV</th>
+                                <th>3-Year CLV</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>VIP Customers</td>
+                                <td>$842</td>
+                                <td>$2,105</td>
+                            </tr>
+                            <tr>
+                                <td>Loyal Customers</td>
+                                <td>$485</td>
+                                <td>$1,213</td>
+                            </tr>
+                            <tr>
+                                <td>New Potential</td>
+                                <td>$328</td>
+                                <td>$820</td>
+                            </tr>
+                            <tr>
+                                <td>Dormant High Value</td>
+                                <td>$136</td>
+                                <td>$340</td>
+                            </tr>
+                            <tr>
+                                <td>Occasional Customers</td>
+                                <td>$98</td>
+                                <td>$245</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h5>Key CLV Insights</h5>
+                    <ul>
+                        <li>VIP customers represent 15% of the customer base but account for 42% of predicted future revenue</li>
+                        <li>Reactivating dormant high-value customers offers significant ROI potential</li>
+                        <li>New customers show promising lifetime value when effectively nurtured</li>
+                        <li>Purchase frequency is the strongest predictor of high lifetime value</li>
+                        <li>Customer acquisition cost should be differentiated by predicted segment CLV</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- Segment Strategies Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Segment Strategies</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">VIP Customers</h4>
+                    <p class="text-muted mb-3">15% of customers, 42% of revenue</p>
+                    <h5>Characteristics</h5>
+                    <ul>
+                        <li>High purchase frequency (5+ orders/year)</li>
+                        <li>High average order value ($120+)</li>
+                        <li>Recent purchases (within 30 days)</li>
+                        <li>Broad category exploration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">Loyal Customers</h4>
+                    <p class="text-muted mb-3">22% of customers, 28% of revenue</p>
+                    <h5>Characteristics</h5>
+                    <ul>
+                        <li>Regular purchase frequency (3-4 orders/year)</li>
+                        <li>Moderate average order value ($75-120)</li>
+                        <li>Consistent category preferences</li>
+                        <li>Price-sensitive but loyal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">Dormant High Value</h4>
+                    <p class="text-muted mb-3">12% of customers, 8% of revenue</p>
+                    <h5>Characteristics</h5>
+                    <ul>
+                        <li>Previously frequent purchasers</li>
+                        <li>No purchases in 60+ days</li>
+                        <li>Historically high CLV</li>
+                        <li>Often multi-category shoppers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Conclusions Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Business Impact & Recommendations</h2>
+    <div class="card border-0 shadow">
+        <div class="card-body">
+            <h4 class="mb-3">Key Business Insights</h4>
+            <ol>
+                <li><strong>Segment-Based Strategy:</strong> The analysis revealed six distinct customer segments, each requiring different marketing approaches and retention strategies.</li>
+                <li><strong>High-Value Customer Focus:</strong> VIP and Loyal customers represent 37% of the customer base but account for 70% of revenue, justifying premium retention efforts.</li>
+                <li><strong>Reactivation Opportunity:</strong> Dormant high-value customers represent a $1.2M revenue opportunity if effectively reactivated.</li>
+                <li><strong>Product Associations:</strong> Strong product associations were identified that can drive bundling strategies and increase average order value.</li>
+                <li><strong>Customer Lifecycle Management:</strong> Cohort analysis revealed critical drop-off points where intervention is most effective.</li>
+            </ol>
+            
+            
+            <h4 class="mb-3 mt-4">Expected Results</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Revenue Increase</h5>
+                            <p class="display-4">18%</p>
+                            <p class="card-text">Projected annual revenue growth from implementing segment-based strategies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Customer Retention</h5>
+                            <p class="display-4">+12%</p>
+                            <p class="card-text">Expected improvement in customer retention rate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Average Order Value</h5>
+                            <p class="display-4">+24%</p>
+                            <p class="card-text">Projected increase in average order value from cross-selling and bundling</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</section>
+{% endblock %}

@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block title %}DC - Data Science Portfolio | Causal Inference Analysis{% endblock %}
+
+{% block content %}
+<!-- Project Header -->
+<section class="project-header">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Causal Inference Analysis</h1>
+        <p class="lead">Uncovering cause-effect relationships in socioeconomic data to inform policy decisions</p>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section class="container mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h2 class="section-title">Project Overview</h2>
+            <p>I have completed some  inference techniques in order to understand underlying relation ships between between education, income, health, and other factors.</p>
+            
+            
+            <h3 class="mt-4">Research Questions</h3>
+            <ol>
+                <li>What is the true causal effect of education on income, controlling for confounding factors?</li>
+                <li>How does education affect health outcomes, and what portion of this effect is mediated through income?</li>
+            </ol>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Technologies Used</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Python</span>
+                        <span class="badge bg-primary skill-badge">Pandas</span>
+                        <span class="badge bg-primary skill-badge">NumPy</span>
+                        <span class="badge bg-primary skill-badge">Matplotlib</span>
+                        <span class="badge bg-primary skill-badge">Seaborn</span>
+                    </div>
+                    
+                    <h5 class="card-title mt-4">Techniques</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Causal Graphs</span>
+                        <span class="badge bg-primary skill-badge">Regression Analysis</span>
+                        <span class="badge bg-primary skill-badge">Mediation Analysis</span>
+                    </div>
+                    
+                    <!-- <h5 class="card-title mt-4">Source Code</h5>
+                    <a href="https://github.com/yourusername/causal-inference-analysis" target="_blank" class="btn btn-primary w-100">
+                        <i class="fab fa-github me-2"></i>View on GitHub -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Methodology Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Methodology</h2>
+    <div class="row">
+    </div>
+
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Analytical Approach</h5>
+                    <ol>
+                        <li><strong>Causal Model Specification:</strong> Developed a directed acyclic graph (DAG) to model assumed causal relationships</li>
+                        <li><strong>Regression Analysis:</strong> Multiple regression models with carefully selected covariates to isolate causal effects</li>
+                        <li><strong>Mediation Analysis:</strong> Quantified direct and indirect effects of education on health</li>
+                        <li><strong>Machine Learning:</strong> Used Random Forest for feature importance and partial dependence plots</li>
+                        <li><strong>Policy Simulation:</strong> Estimated potential outcomes under various intervention scenarios</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+    
+    <!-- Causal Graph Visualization -->
+
+<!-- Key Findings -->
+<section class="container mb-5">
+</div>
+    <h2 class="section-title">Key Findings</h2>
+    
+    <!-- Income Determinants -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">1. Income Determinants</h4>
+            <p class="card-text">Each additional year of education increases income by approximately $3,000.  This effect actually varies a great amount depending on the family background.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/causal_inference/income_coefficients.png') }}" alt="Income Determinants" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Significant coefficients in the income model showing the relative importance of different factors.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/causal_inference/education_effect_by_background.png') }}" alt="Education Effect by Background" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Effect of education on income.</figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mediation Analysis -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">2. Mediation Analysis: Education → Income → Health</h4>
+            <p class="card-text">Education affects health both directly and indirectly through income. Approximately 42% of education's total effect on health is mediated through increased income.</p>
+            <div class="text-center">
+                <img src="{{ url_for('static', filename='images/causal_inference/mediation_visualization.png') }}" alt="Mediation Analysis" class="img-fluid viz-img" style="max-width: 700px;">
+                <figcaption class="text-muted mt-2">Visual representation of the mediation analysis showing direct and indirect effects of education on health outcomes.</figcaption>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Effect Type</th>
+                                <th>Magnitude</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Effect</td>
+                                <td>2.45 points</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>Direct Effect</td>
+                                <td>1.42 points</td>
+                                <td>58%</td>
+                            </tr>
+                            <tr>
+                                <td>Indirect Effect (via Income)</td>
+                                <td>1.03 points</td>
+                                <td>42%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Interpretation:</strong></p>
+                    <ul>
+                        <li>Each year of education directly increases health score by 1.42 points</li>
+                        <li>Each year of education indirectly increases health score by 1.03 points through higher income</li>
+                        <li>The significant mediation effect suggests that policies addressing both education and income will have the strongest impact on health outcomes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- Conclusions Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Conclusions</h2>
+    <div class="card border-0 shadow">
+        <div class="card-body">
+            <h4 class="mb-3">Key Insights</h4>
+            <ol>
+                <li><strong>Education Has Substantial Causal Effects:</strong> Each additional year of education increases income by approximately $3,000 after controlling for confounding factors.</li>
+                <li><strong>Health Effects Are Both Direct and Indirect:</strong> About 42% of education's effect on health is mediated through income, while 58% is direct (possibly through knowledge, behaviors, and access).</li>
+                <li><strong>Gender Wage Gap Increases with Age:</strong> The analysis revealed a significant interaction between gender and age, with the wage gap growing larger for older individuals.</li>
+            </ol>
+            
+        </div>
+    </div>
+</section>
+
+{% endblock %}

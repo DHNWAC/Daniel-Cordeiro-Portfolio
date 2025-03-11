@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block title %}DC - Data Science Portfolio | About Me{% endblock %}
+
+{% block content %}
+<!-- About Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4">About Me</h1>
+        <p class="lead">Data Scientist | Data Analyst | Consultant | EY</p>
+    </div>
+</section>
+
+<!-- Main About Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile Photo" class="img-fluid rounded-circle shadow">
+            </div>
+            <div class="col-lg-8">
+                <h2 class="section-title">My Journey</h2>
+                <p>Senior Data Analyst, Scientist and Consultant with 5-year Industry Experience who can translate complex data into actionable insights.  In doing so, I have been able to drive growth and optimise operations within the FMCG, Banking and Government industry. I have deep expertise in advanced statistical modelling, machine learning, Generative AI, LLMs, data visualisation, and POC model experimentation.</p>
+                <p>I specialise in building machine learning models, data visualization, and delivering insights that create measurable business impact. My experience spans across developing predictive models, optimization algorithms, and data-driven solutions that have generated millions in value for organizations.</p>
+                <div class="mt-4">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-6 mb-4">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h5>Bachelor of Actuarial Studies and Bachelor of Finance</h5>
+                        <p>Australian National University</p>
+                        <p>Double degree with a major in Capital Markets, providing a strong foundation in statistical analysis, financial modelling, and risk assessment.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h5>Senior - Data Analytics and Science</h5>
+                        <p>Ubank, Present</p>
+                        <p>Leveraging advanced analytics and machine learning to drive customer insights and improve financial services offerings.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Data Science - Value Chain and Operations</h5>
+                        <p>Quantium, Aug 2023-Present</p>
+                        <p>Developing machine learning models to predict sales uplift, utilizing LLMs for data extraction, and creating comprehensive costing tools generating millions in business value.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Data Science - Q Promotions</h5>
+                        <p>Quantium, Aug 2022-Aug 2023</p>
+                        <p>Developed anomaly detection algorithms, created advanced visualizations, and implemented automated validation dashboards to optimize promotional performance.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Actuarial Analyst</h5>
+                        <p>EY, Mar 2021-Jun 2022</p>
+                        <p>Developed forecasting models and wellbeing metrics to assess client vulnerability and identify high-risk individuals.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Data Analyst</h5>
+                        <p>Department of Health, Jan 2020-Mar 2021</p>
+                        <p>Managed healthcare databases, resolved client record issues, and ensured data integrity across multiple systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-laptop-code me-2 text-primary"></i>Technical Skills</h5>
+                                <div class="mb-3">
+                                    <span class="badge bg-primary skill-badge">Python</span>
+                                    <span class="badge bg-primary skill-badge">SQL</span>
+                                    <span class="badge bg-primary skill-badge">R/RStudio</span>
+                                    <span class="badge bg-primary skill-badge">pySpark</span>
+                                    <span class="badge bg-primary skill-badge">SAS</span>
+                                    <span class="badge bg-primary skill-badge">VBA</span>
+                                    <span class="badge bg-primary skill-badge">Apps Script</span>
+                                    <span class="badge bg-primary skill-badge">Pandas</span>
+                                    <span class="badge bg-primary skill-badge">NumPy</span>
+                                    <span class="badge bg-primary skill-badge">Scikit-learn</span>
+                                    <span class="badge bg-primary skill-badge">TensorFlow</span>
+                                    <span class="badge bg-primary skill-badge">Matplotlib</span>
+                                    <span class="badge bg-primary skill-badge">Seaborn</span>
+                                    <span class="badge bg-primary skill-badge">Flask</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-chart-line me-2 text-primary"></i>Data Science Expertise</h5>
+                                <div class="mb-3">
+                                    <span class="badge bg-primary skill-badge">Machine Learning</span>
+                                    <span class="badge bg-primary skill-badge">Statistical modelling</span>
+                                    <span class="badge bg-primary skill-badge">GLM</span>
+                                    <span class="badge bg-primary skill-badge">GBM</span>
+                                    <span class="badge bg-primary skill-badge">Time Series Forecasting</span>
+                                    <span class="badge bg-primary skill-badge">A/B Testing</span>
+                                    <span class="badge bg-primary skill-badge">Data Visualization</span>
+                                    <span class="badge bg-primary skill-badge">ETL Processes</span>
+                                    <span class="badge bg-primary skill-badge">Queuing Theory</span>
+                                    <span class="badge bg-primary skill-badge">Simulation</span>
+                                    <span class="badge bg-primary skill-badge">Anomaly Detection</span>
+                                    <span class="badge bg-primary skill-badge">Natural Language Processing</span>
+                                    <span class="badge bg-primary skill-badge">OCR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-tools me-2 text-primary"></i>Tools & Platforms</h5>
+                                <div class="mb-3">
+                                    <span class="badge bg-primary skill-badge">Snowflake</span>
+                                    <span class="badge bg-primary skill-badge">Tableau</span>
+                                    <span class="badge bg-primary skill-badge">Power BI</span>
+                                    <span class="badge bg-primary skill-badge">BigQuery</span>
+                                    <span class="badge bg-primary skill-badge">Looker Studio</span>
+                                    <span class="badge bg-primary skill-badge">Git</span>
+                                    <span class="badge bg-primary skill-badge">Jira</span>
+                                    <span class="badge bg-primary skill-badge">Confluence</span>
+                                    <span class="badge bg-primary skill-badge">Bitbucket</span>
+                                    <span class="badge bg-primary skill-badge">SourceTree</span>
+                                    <span class="badge bg-primary skill-badge">Excel</span>
+                                    <span class="badge bg-primary skill-badge">Google Ecosystem</span>
+                                    <span class="badge bg-primary skill-badge">GCP</span>
+                                    <span class="badge bg-primary skill-badge">Gemini API</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-users me-2 text-primary"></i>Soft Skills</h5>
+                                <div class="mb-3">
+                                    <span class="badge bg-primary skill-badge">Problem Solving</span>
+                                    <span class="badge bg-primary skill-badge">Data Storytelling</span>
+                                    <span class="badge bg-primary skill-badge">Stakeholder Management</span>
+                                    <span class="badge bg-primary skill-badge">Business Acumen</span>
+                                    <span class="badge bg-primary skill-badge">Mentoring</span>
+                                    <span class="badge bg-primary skill-badge">Presentation Skills</span>
+                                    <span class="badge bg-primary skill-badge">Client Communication</span>
+                                    <span class="badge bg-primary skill-badge">Project Management</span>
+                                    <span class="badge bg-primary skill-badge">Team Collaboration</span>
+                                    <span class="badge bg-primary skill-badge">Technical Documentation</span>
+                                    <span class="badge bg-primary skill-badge">Requirements Analysis</span>
+                                    <span class="badge bg-primary skill-badge">Agile Methodologies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="section-title">Certifications</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Advanced Data Science with Python</h5>
+                                <p class="card-subtitle mb-2 text-muted">Quantium Academy</p>
+                                <p class="card-text">Comprehensive training in statistical modelling, machine learning algorithms, and data visualization techniques using Python.</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <small class="text-muted">Completed: 2023</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">SQL and Database Management</h5>
+                                <p class="card-subtitle mb-2 text-muted">Snowflake</p>
+                                <p class="card-text">Advanced database design, optimization, and query techniques for large-scale data processing and analysis.</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <small class="text-muted">Completed: 2022</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Data Visualization Masterclass</h5>
+                                <p class="card-subtitle mb-2 text-muted">Tableau</p>
+                                <p class="card-text">Expert-level data visualization techniques, dashboard design, and storytelling with data for business intelligence.</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <small class="text-muted">Completed: 2022</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

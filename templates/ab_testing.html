@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+{% block title %}DC - Data Science Portfolio | A/B Testing Analysis{% endblock %}
+
+{% block content %}
+<!-- Project Header -->
+<section class="project-header">
+    <div class="container">
+        <h1 class="display-4 fw-bold">A/B Testing Analysis</h1>
+        <p class="lead">Statistical comparison of variant performance to optimize user experience and conversion rates</p>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section class="container mb-5">
+    <div class="row">
+        <div class="col-lg-">
+            <h2 class="section-title">Project Overview</h2>
+            <p>In this project, I attempted AB Testing in order to evaluate the performance on different variations in a web based experiment.  I focus on key metrics such as conversion rates, revenue per user, time spent and pages viwewed across a wide variety of user segments.</p>
+            
+          
+            <h3 class="mt-4">Business Objective</h3>
+            <p>My Goal was to dertemine whether variant B which was a new feature out performs variant a which was the control in terms of:</p>
+            <ul>
+                <li>Conversion rate (primary KPI)</li>
+                <li>Revenue per user</li>
+                <li>User engagement (time spent, pages viewed)</li>
+            </ul>
+            
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Technologies Used</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Python</span>
+                        <span class="badge bg-primary skill-badge">Pandas</span>
+                        <span class="badge bg-primary skill-badge">NumPy</span>
+                        <span class="badge bg-primary skill-badge">Matplotlib</span>
+                        <span class="badge bg-primary skill-badge">Seaborn</span>
+                        <span class="badge bg-primary skill-badge">SciPy</span>
+                        <span class="badge bg-primary skill-badge">StatsModels</span>
+                    </div>
+                    
+                    <h5 class="card-title mt-4">Techniques</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Hypothesis Testing</span>
+                        <span class="badge bg-primary skill-badge">Z-Test</span>
+                        <span class="badge bg-primary skill-badge">T-Test</span>
+                        <span class="badge bg-primary skill-badge">Bayesian Analysis</span>
+                        <span class="badge bg-primary skill-badge">Segmentation</span>
+                        <span class="badge bg-primary skill-badge">Regression Analysis</span>
+                    </div>
+                    
+                    <!-- <h5 class="card-title mt-4">Source Code</h5>
+                    <a href="https://github.com/yourusername/ab-testing-analysis" target="_blank" class="btn btn-primary w-100">
+                        <i class="fab fa-github me-2"></i>View on GitHub -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Methodology Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Methodology</h2>
+    <div class="row">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Analysis Approach</h5>
+                    <ol>
+                        <li><strong>Basic Test Results:</strong> Comparison of overall metrics between variants</li>
+                        <li><strong>Statistical Significance Testing:</strong> Z-tests for conversion rates, t-tests for continuous metrics</li>
+                        <li><strong>Bayesian Analysis:</strong> Calculation of probability that B is better than A and expected lift</li>
+                        <li><strong>Subgroup Analysis:</strong> Identification of segments with differential effects</li>
+                        <li><strong>Regression Analysis:</strong> Logistic regression to identify interaction effects</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+<section>    
+<section>    
+    
+<!-- Key Findings -->
+<section class="container mb-5">
+    <h2 class="section-title">Key Findings</h2>
+    <div class="row">
+
+    <!-- Main Metrics Comparison -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">Overall Performance Comparison</h4>
+            <p class="card-text">Variant B showed significant improvements across all key metrics with a 13.8% increase and conversion rate increase of 11.5%.</p>
+            <div class="text-center">
+                <img src="{{ url_for('static', filename='images/ab_testing/main_metrics_comparison.png') }}" alt="Main Metrics Comparison" class="img-fluid viz-img">
+                <figcaption class="text-muted mt-2">Variant A and B Key metrics comparison.</figcaption>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Statistical Significance -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">Statistical Significance Analysis</h4>
+            <p class="card-text">The improvements in conversion rate and time spent were statistically significant (p < 0.05), providing strong evidence that Variant B genuinely outperforms Variant A.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Metric</th>
+                                <th>Test Type</th>
+                                <th>P-value</th>
+                                <th>Significant?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Conversion Rate</td>
+                                <td>Z-test</td>
+                                <td>0.0024</td>
+                                <td><span class="badge bg-success">Yes</span></td>
+                            </tr>
+                            <tr>
+                                <td>Revenue per User</td>
+                                <td>T-test</td>
+                                <td>0.0312</td>
+                                <td><span class="badge bg-success">Yes</span></td>
+                            </tr>
+                            <tr>
+                                <td>Time Spent</td>
+                                <td>T-test</td>
+                                <td>0.0176</td>
+                                <td><span class="badge bg-success">Yes</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/ab_testing/bayesian_posteriors.png') }}" alt="Bayesian Analysis" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2"></figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Segmentation Analysis -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">Segmentation Analysis</h4>
+            <p class="card-text">The impact of Variant B varies significantly across different user segments, with mobile users and younger age groups showing the strongest positive response.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/ab_testing/conversion_by_device.png') }}" alt="Conversion by Device Type" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Conversion rates by device type, showing stronger lift for mobile users with Variant B.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='images/ab_testing/conversion_by_age.png') }}" alt="Conversion by Age Group" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Conversion rates by age group, showing stronger performance for younger users with Variant B.</figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Significant Interactions -->
+    <div class="card visualization-card">
+        <div class="card-body">
+            <h4 class="card-title">Interaction Effects</h4>
+            <p class="card-text">The regression analysis revealed significant interaction effects between variant and user characteristics, particularly for mobile users and the 18-24 age group.</p>
+            <div class="text-center">
+                <img src="{{ url_for('static', filename='images/ab_testing/significant_interactions.png') }}" alt="Significant Interactions" class="img-fluid viz-img">
+                <figcaption class="text-muted mt-2">Regression coefficients for significant interaction terms, showing which segments respond differently to Variant B.</figcaption>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Conclusions Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Conclusions & Recommendations</h2>
+    <div class="card border-0 shadow">
+        <div class="card-body">
+            <h4 class="mb-3">Key Insights</h4>
+            <ol>
+                <li><strong>Overall Success:</strong> Variant B significantly outperforms Variant A across all key metrics, with a 94.3% probability of being better based on Bayesian analysis.</li>
+                <li><strong>Segment-Specific Effects:</strong> The improvements are particularly strong for mobile users (+18.5% conversion) and younger demographics (+15.2% conversion for 18-24 age group).</li>
+                <li><strong>Revenue Impact:</strong> Implementing Variant B is projected to increase overall revenue by approximately 13.8% based on the observed lift in revenue per user.</li>
+            </ol>
+            
+            <h4 class="mb-3 mt-4">Recommendations</h4>
+            <ol>
+                <li><strong>Implement Variant B:</strong> The strong statistical evidence supports rolling out Variant B to all users.</li>
+                <li><strong>Consider Targeted Implementation:</strong> If a phased rollout is preferred, prioritize mobile users and younger demographics where the impact is strongest.</li>
+                <li><strong>Further Exploration:</strong> Conduct follow-up testing to explore additional optimizations for desktop users and older demographics where the lift was less pronounced.</li>
+                <li><strong>Long-term Monitoring:</strong> Establish ongoing monitoring of key metrics to ensure persistent benefits over time.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -8,14 +8,14 @@ freezer = Freezer(app)
 @freezer.register_generator
 def url_generator():
     # Generate URLs for all the pages
-    yield {'path': '/'}
-    yield {'path': '/about'}
-    yield {'path': '/ab_testing'}
-    yield {'path': '/causal_inference'}
-    yield {'path': '/customer_segmentation'}
-    yield {'path': '/time_series'}
-    yield {'path': '/nlp_analysis'}
-    yield {'path': '/churn_analysis'}
+    yield '/'
+    yield '/about'
+    yield '/ab-testing'
+    yield '/causal-inference'
+    yield '/customer-segmentation'
+    yield '/time-series'
+    yield '/nlp-analysis'
+    yield '/churn-analysis'
 
 if __name__ == '__main__':
     # Set the app's configuration for freezing

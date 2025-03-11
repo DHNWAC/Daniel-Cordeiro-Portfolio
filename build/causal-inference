@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC - Data Science Portfolio | Causal Inference Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .project-card {
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .project-section {
+            padding: 5rem 0;
+        }
+        
+        .project-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .visualization-card {
+            margin-bottom: 2rem;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .viz-img {
+            width: 100%;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .viz-img:hover {
+            transform: scale(1.02);
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+        
+        .about-section {
+            padding: 5rem 0;
+        }
+        
+        .skill-badge {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            top: 6px;
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            width: 2px;
+            height: 100%;
+            background-color: #e0e0e0;
+            top: 12px;
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">DC - Data Science Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="about">About Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+<!-- Project Header -->
+<section class="project-header">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Causal Inference Analysis</h1>
+        <p class="lead">Uncovering cause-effect relationships in socioeconomic data to inform policy decisions</p>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section class="container mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h2 class="section-title">Project Overview</h2>
+            <p>I have completed some  inference techniques in order to understand underlying relation ships between between education, income, health, and other factors.</p>
+            
+            
+            <h3 class="mt-4">Research Questions</h3>
+            <ol>
+                <li>What is the true causal effect of education on income, controlling for confounding factors?</li>
+                <li>How does education affect health outcomes, and what portion of this effect is mediated through income?</li>
+            </ol>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Technologies Used</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Python</span>
+                        <span class="badge bg-primary skill-badge">Pandas</span>
+                        <span class="badge bg-primary skill-badge">NumPy</span>
+                        <span class="badge bg-primary skill-badge">Matplotlib</span>
+                        <span class="badge bg-primary skill-badge">Seaborn</span>
+                    </div>
+                    
+                    <h5 class="card-title mt-4">Techniques</h5>
+                    <div class="mb-3">
+                        <span class="badge bg-primary skill-badge">Causal Graphs</span>
+                        <span class="badge bg-primary skill-badge">Regression Analysis</span>
+                        <span class="badge bg-primary skill-badge">Mediation Analysis</span>
+                    </div>
+                    
+                    <!-- <h5 class="card-title mt-4">Source Code</h5>
+                    <a href="https://github.com/yourusername/causal-inference-analysis" target="_blank" class="btn btn-primary w-100">
+                        <i class="fab fa-github me-2"></i>View on GitHub -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Methodology Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Methodology</h2>
+    <div class="row">
+    </div>
+
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Analytical Approach</h5>
+                    <ol>
+                        <li><strong>Causal Model Specification:</strong> Developed a directed acyclic graph (DAG) to model assumed causal relationships</li>
+                        <li><strong>Regression Analysis:</strong> Multiple regression models with carefully selected covariates to isolate causal effects</li>
+                        <li><strong>Mediation Analysis:</strong> Quantified direct and indirect effects of education on health</li>
+                        <li><strong>Machine Learning:</strong> Used Random Forest for feature importance and partial dependence plots</li>
+                        <li><strong>Policy Simulation:</strong> Estimated potential outcomes under various intervention scenarios</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+    
+    <!-- Causal Graph Visualization -->
+
+<!-- Key Findings -->
+<section class="container mb-5">
+</div>
+    <h2 class="section-title">Key Findings</h2>
+    
+    <!-- Income Determinants -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">1. Income Determinants</h4>
+            <p class="card-text">Each additional year of education increases income by approximately $3,000.  This effect actually varies a great amount depending on the family background.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="static/images/causal_inference/income_coefficients.png" alt="Income Determinants" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Significant coefficients in the income model showing the relative importance of different factors.</figcaption>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="static/images/causal_inference/education_effect_by_background.png" alt="Education Effect by Background" class="img-fluid viz-img">
+                        <figcaption class="text-muted mt-2">Effect of education on income.</figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mediation Analysis -->
+    <div class="card visualization-card mb-5">
+        <div class="card-body">
+            <h4 class="card-title">2. Mediation Analysis: Education → Income → Health</h4>
+            <p class="card-text">Education affects health both directly and indirectly through income. Approximately 42% of education's total effect on health is mediated through increased income.</p>
+            <div class="text-center">
+                <img src="static/images/causal_inference/mediation_visualization.png" alt="Mediation Analysis" class="img-fluid viz-img" style="max-width: 700px;">
+                <figcaption class="text-muted mt-2">Visual representation of the mediation analysis showing direct and indirect effects of education on health outcomes.</figcaption>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Effect Type</th>
+                                <th>Magnitude</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Effect</td>
+                                <td>2.45 points</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>Direct Effect</td>
+                                <td>1.42 points</td>
+                                <td>58%</td>
+                            </tr>
+                            <tr>
+                                <td>Indirect Effect (via Income)</td>
+                                <td>1.03 points</td>
+                                <td>42%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Interpretation:</strong></p>
+                    <ul>
+                        <li>Each year of education directly increases health score by 1.42 points</li>
+                        <li>Each year of education indirectly increases health score by 1.03 points through higher income</li>
+                        <li>The significant mediation effect suggests that policies addressing both education and income will have the strongest impact on health outcomes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- Conclusions Section -->
+<section class="container mb-5">
+    <h2 class="section-title">Conclusions</h2>
+    <div class="card border-0 shadow">
+        <div class="card-body">
+            <h4 class="mb-3">Key Insights</h4>
+            <ol>
+                <li><strong>Education Has Substantial Causal Effects:</strong> Each additional year of education increases income by approximately $3,000 after controlling for confounding factors.</li>
+                <li><strong>Health Effects Are Both Direct and Indirect:</strong> About 42% of education's effect on health is mediated through income, while 58% is direct (possibly through knowledge, behaviors, and access).</li>
+                <li><strong>Gender Wage Gap Increases with Age:</strong> The analysis revealed a significant interaction between gender and age, with the wage gap growing larger for older individuals.</li>
+            </ol>
+            
+        </div>
+    </div>
+</section>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Daniel Cordeiro - Data Science Portfolio</h4>
+                    <p>A showcase of my data analysis and science projects.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+\                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2025 Daniel Cordeiro. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

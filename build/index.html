@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC - Data Science Portfolio | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .project-card {
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .project-section {
+            padding: 5rem 0;
+        }
+        
+        .project-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .visualization-card {
+            margin-bottom: 2rem;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .viz-img {
+            width: 100%;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .viz-img:hover {
+            transform: scale(1.02);
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+        
+        .about-section {
+            padding: 5rem 0;
+        }
+        
+        .skill-badge {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            top: 6px;
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            width: 2px;
+            height: 100%;
+            background-color: #e0e0e0;
+            top: 12px;
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">DC - Data Science Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="about">About Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4">Daniel Cordeiro - Data Science Portfolio</h1>
+        <!-- <p class="lead mb-5">Transforming raw data into actionable insights through advanced analytics and visualisation techniques</p> -->
+        <a href="#portfolio" class="btn btn-light btn-lg px-4 me-2">View Projects</a>
+        <a href="about" class="btn btn-outline-light btn-lg px-4">About Me</a>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section class="container py-5" id="portfolio">
+    <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">A Few Featured Projects</h2>
+        <p class="lead text-muted">Explore my data science projects showcasing various analytical techniques and methodologies</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- AB Testing Project -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card project-card h-100">
+                <img src="static/images/ab_testing_preview.png" class="card-img-top" alt="A/B Testing Analysis">
+                <div class="card-body">
+                    <h5 class="card-title">A/B Testing Analysis</h5>
+                    <p class="card-text">Here I compared the various performances across multiple metrics and user segements that I created.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="ab-testing" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                        <small class="text-muted">Statistical Testing</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Causal Inference Project -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card project-card h-100">
+                <img src="static/images/causal_inference_preview.png" class="card-img-top" alt="Causal Inference Analysis">
+                <div class="card-body">
+                    <h5 class="card-title">Causal Inference Analysis</h5>
+                    <p class="card-text">I used advanced statistical methods to better understand the causes and effets of various factors and impacts within a data set.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="causal-inference" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                        <small class="text-muted">Initial Discovery</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Segmentation Project -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card project-card h-100">
+                <img src="static/images/customer_segmentation_preview.png" class="card-img-top" alt="Customer Segmentation">
+                <div class="card-body">
+                    <h5 class="card-title">Customer Segmentation</h5>
+                    <p class="card-text">I used clustering algorithms as well as other segmentation techniques to better aid stakeholder decisions.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="customer-segmentation" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                        <small class="text-muted">Clustering</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Time Series Project -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card project-card h-100">
+                <img src="static/images/time_series_preview.png" class="card-img-top" alt="Time Series Analysis">
+                <div class="card-body">
+                    <h5 class="card-title">Time Series Analysis</h5>
+                    <p class="card-text">I used the prophet package to forecast time series data as well as anomaly detection and decomposition.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="time-series" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                        <small class="text-muted">Forecasting</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NLP Analysis Project -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card project-card h-100">
+                <img src="static/images/nlp_preview.png" class="card-img-top" alt="NLP Analysis">
+                <div class="card-body">
+                    <h5 class="card-title">NLP Analysis</h5>
+                    <p class="card-text">Performed sentiment analysis and text mining to extract meaningful insights from free text data.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="nlp-analysis" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                        <small class="text-muted">Text Mining</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Churn Analysis Project -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card project-card h-100">
+                <img src="static/images/churn_preview.png" class="card-img-top" alt="Churn Analysis">
+                <div class="card-body">
+                    <h5 class="card-title">Churn Analysis</h5>
+                    <p class="card-text">Predictive analytics and modelling to understand the factors contributing the customer churn and how to better retain them.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="churn-analysis" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                        <small class="text-muted">Predictive modelling</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Programming Languages and Tools</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Python</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>R</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>SQL</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>JavaScript</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Generative AI</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Claude, LLMs, Gemini APIs</li>
+                        </ul>
+                        
+                        <h5 class="mt-3">Machine Learning</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Scikit-learn</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>TensorFlow</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>PyTorch</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Ensemble Methods</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Data Visualization</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Matplotlib</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Seaborn</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Plotly</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Tableau</li>
+                        </ul>
+                        
+                        <h5 class="mt-3">Big Data</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Spark</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Hadoop</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>MongoDB</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>AWS</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Data Bricks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2 class="section-title">Methodologies</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Analytics</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i>A/B Testing</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Statistical Analysis</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Hypothesis Testing</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Customer Segmentation</li>
+                        </ul>
+                        
+                        <h5 class="mt-3">Machine Learning</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Supervised Learning</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Unsupervised Learning</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>NLP & Text Mining</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Time Series Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Project Management</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Agile/Scrum</li>
+\                           <li><i class="fas fa-check-circle text-success me-2"></i>Version Control (Git)</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Documentation</li>
+                        </ul>
+                        
+                        <h5 class="mt-3">Business Acumen</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i>KPI Definition</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Data Storytelling</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Executive Presentations</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>ROI Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </div>
+</section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Daniel Cordeiro - Data Science Portfolio</h4>
+                    <p>A showcase of my data analysis and science projects.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+\                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2025 Daniel Cordeiro. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
